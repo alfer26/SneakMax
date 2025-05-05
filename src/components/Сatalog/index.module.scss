@@ -1,0 +1,40 @@
+.catalog {
+    > h2 {
+        padding: 60px 0 50px;
+    }
+    > div {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); // Использование repeat для лучшей читаемости
+        gap: 16px;
+        align-items: start;
+
+        // Добавление кроссбраузерной поддержки для grid
+        display: -ms-grid; // Для IE 11
+        display: grid;
+        -ms-grid-columns: 1fr 1fr 1fr 1fr; // Для IE 11
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+// Используйте max-width вместо width для медиа-запросов
+@media (max-width: 1024px) {
+    .catalog {
+        > div {
+            grid-template-columns: repeat(3, 1fr); // Использование repeat для лучшей читаемости
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .catalog {
+        > div {
+            display: flex;
+            flex-direction: column;
+
+            // Добавление кроссбраузерной поддержки для flex
+            display: -webkit-box; // Для старых версий Safari
+            display: -ms-flexbox; // Для IE 10
+            display: flex;
+        }
+    }
+}

@@ -1,0 +1,204 @@
+.background {
+    transition: opacity 0.3s;
+    animation: display 0.3s;
+    background-color: hsla(219, 13%, 31%, 0.7);
+    position: fixed;
+    inset: 0 0 0 0;
+    z-index: 100;
+    overflow-y: scroll;
+    overscroll-behavior: none;
+    display: flex;
+    justify-content: center;
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+    .productCard {
+        position: relative;
+        margin: auto;
+        background-color: hsl(0, 0%, 100%);
+        width: 1180px;
+        padding: 40px;
+        display: grid;
+        column-gap: 20px;
+        row-gap: 60px;
+        grid-template-areas: 'image actions actions' 'description description characteristic';
+        grid-template-columns: 7fr 3fr 4fr;
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            svg {
+                width: 12px;
+                height: 12px;
+            }
+        }
+        > img {
+            grid-area: image;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        > .actions {
+            gap: 20px;
+            padding-right: 110px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            grid-area: actions;
+            .addCartButton:disabled {
+                position: relative;
+                overflow: hidden;
+                &::before {
+                    content: 'Выберите размер';
+                    position: absolute;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: inherit;
+                    inset: 0;
+                }
+            }
+            .title {
+                line-height: 1.4em;
+            }
+            .stars {
+                display: flex;
+                gap: 8px;
+            }
+            .choiceSize {
+                > p {
+                    margin-bottom: 0.4em;
+                }
+                > div {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+                    gap: 10px;
+                }
+            }
+            .price {
+                display: flex;
+                align-items: baseline;
+                gap: 20px;
+                > p {
+                    text-decoration: line-through;
+                    opacity: 0.6;
+                }
+            }
+            .advantages {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5em;
+                > div {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    > p {
+                        opacity: 0.6;
+                    }
+                }
+            }
+            .sideInfo {
+                display: flex;
+                justify-content: space-between;
+                gap: 0.5em;
+                flex-wrap: wrap;
+                > p {
+                    display: flex;
+                    gap: 0.6em;
+                }
+                .vendorСode,
+                .inStock :first-child {
+                    opacity: 0.6;
+                }
+            }
+        }
+        .description {
+            grid-area: description;
+        }
+        .characteristic {
+            grid-area: characteristic;
+        }
+        .characteristic,
+        .description {
+            > h3 {
+                margin-bottom: 25px;
+            }
+            p {
+                line-height: 1.4em;
+                padding-right: 10%;
+            }
+        }
+    }
+}
+
+@media (width <= 1280px) {
+    .background {
+        padding: 40px 3.54330708661417vw;
+
+        .productCard {
+            grid-template-columns: 1fr 1fr;
+            row-gap: 40px;
+            grid-template-areas: 'image actions' 'characteristic actions' 'description description';
+
+            .characteristic,
+            .description {
+                > h3 {
+                    margin-bottom: 20px;
+                }
+            }
+            .description {
+                p {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}
+
+@media (width <= 1024px) {
+    .background {
+        .productCard {
+            .actions {
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+@media (width <= 768px) {
+    .background {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+        .productCard {
+            display: flex;
+            flex-direction: column;
+            .characteristic {
+                p {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}
+
+@media (width <= 480px) {
+    .background {
+        .productCard {
+            padding: 40px 6% 30px 6%;
+            .actions {
+                .sideInfo {
+                    gap: 0.7em;
+                }
+            }
+        }
+    }
+}
+
+@keyframes display {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

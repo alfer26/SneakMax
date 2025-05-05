@@ -1,0 +1,86 @@
+.background {
+    transition: opacity 0.3s;
+    animation: display 0.3s;
+    background-color: #444b58b2;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    .cart {
+        overflow: hidden;
+        background-color: hsl(0, 0%, 100%);
+        width: 480px;
+        margin-top: 72px;
+        display: flex;
+        ::-webkit-scrollbar {
+            background-color: #ffffff;
+        }
+        ::-webkit-scrollbar-thumb {
+            border: 2px solid #ffffff;
+        }
+        flex-direction: column;
+        .cartContent {
+            overflow-y: scroll;
+            flex-grow: 1;
+            height: 328px;
+        }
+        .cartEmpty {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mackingOrderButton:disabled {
+            position: relative;
+            overflow: hidden;
+            &::before {
+                content: 'Добавьте товар в корзину';
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: inherit;
+                inset: 0;
+            }
+        }
+        .menu {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            padding: 15px 20px;
+            gap: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .totalAmount {
+                overflow-wrap: anywhere;
+                margin-top: 10px;
+                font-family: Intro Bold;
+                font-size: 1.25em;
+                font-weight: 700;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+            }
+        }
+    }
+}
+
+@media (width <= 480px) {
+    .background {
+        .cart {
+            .menu {
+                align-items: normal;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+@keyframes display {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

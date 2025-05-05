@@ -1,0 +1,58 @@
+.slider {
+    margin-top: -17px;
+    width: 98%;
+    position: relative;
+    user-select: none;
+    align-self: center;
+
+    > .line {
+        position: absolute;
+        inset: 0; // Поддержка для современных браузеров
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 100%;
+        background-color: #444b58;
+        height: 4px;
+        border: 1px solid #fff4ee;
+    }
+
+    > .range {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        justify-content: center;
+        align-self: center;
+
+        > .maxPriceMargin,
+        > .minPriceMargin {
+            background-color: hsla(21, 100%, 97%, 0.6);
+        }
+
+        > .marker {
+            cursor: col-resize !important;
+            position: relative;
+            height: 20px;
+
+            > div {
+                position: absolute;
+                background-color: #444b58;
+                border-radius: 10px;
+                border: 1px solid #fff4ee;
+                inset: 0 -3px; // Поддержка для современных браузеров
+                top: 0;
+                left: -3px;
+                right: -3px;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+.resizeCursor {
+    * {
+        cursor: col-resize !important;
+    }
+}

@@ -1,0 +1,41 @@
+.background {
+    background-color: #444b58b2;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px calc((100% - 1080px) / 2);
+    transition: opacity 0.3s;
+    animation: display 0.3s;
+    > section {
+        background-color: hsl(0, 0%, 100%);
+        padding: 30px;
+        margin: 5vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 4px;
+        gap: 30px;
+        > div {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            align-items: center;
+            flex-wrap: wrap;
+            button {
+                flex-grow: 1;
+            }
+        }
+    }
+}
+
+@keyframes display {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

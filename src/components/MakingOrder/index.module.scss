@@ -1,0 +1,170 @@
+.background {
+    transition: opacity 0.3s;
+    animation: display 0.3s;
+    background-color: #444b58b2;
+    position: fixed;
+    inset: 0 0 0 0;
+    z-index: 100;
+    overflow-y: scroll;
+    overscroll-behavior: none;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+    .makingOrder {
+        transition: opacity 0.5s;
+        margin: auto;
+        flex-direction: column;
+        width: 580px;
+        display: flex;
+        background-color: hsl(0, 0%, 100%);
+        padding: 40px;
+        gap: 40px;
+        position: relative;
+
+        .response {
+            position: absolute;
+            inset: 0;
+            background-color: hsl(0, 0%, 100%);
+            transition: opacity 0.7s;
+            animation: display 0.7s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+            padding: 60px;
+            align-items: center;
+            strong {
+                font-family: Intro Regular;
+            }
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            svg {
+                width: 12px;
+                height: 12px;
+            }
+        }
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h2 {
+                font-size: 1.25em;
+                max-width: 60%;
+            }
+            > p {
+                font-size: 0.875em;
+                font-weight: 400;
+                opacity: 0.6;
+            }
+        }
+        .generalInfo {
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            padding: 30px 30px 0 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 22px;
+            > p {
+                display: flex;
+                gap: 0.6em;
+                span:first-of-type {
+                    opacity: 0.6;
+                }
+                span:last-of-type {
+                    font-family: Intro Bold;
+                }
+            }
+            > div {
+                flex-grow: 1;
+                width: 100%;
+                .actions {
+                    display: flex;
+                    justify-content: space-between;
+                    position: sticky;
+                    align-items: center;
+                    width: 100%;
+                    margin-top: -20px;
+                    gap: 20px;
+                    padding: 20px 0;
+                    top: -80px;
+                    background-color: white;
+
+                    > button:first-of-type {
+                        flex-grow: 1;
+                        align-items: center;
+                        gap: 0.3em;
+                        display: flex;
+                    }
+                    > button:last-of-type {
+                        opacity: 0.5;
+                        max-width: 40%;
+                    }
+                }
+                .productsList {
+                    overflow: hidden;
+                    transition: max-height 0.4s;
+                    > div {
+                        padding-bottom: 15px;
+                        .cartEmpty {
+                            text-align: center;
+                            margin-bottom: 0.5em;
+                            font-size: 1.2em;
+                        }
+                        > p {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 10px;
+            input {
+                color: initial;
+                padding: 20px;
+                width: 100%;
+                border-radius: 4px;
+                background-color: #f6f6f6;
+            }
+            > button {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+@media (width <= 768px) {
+    .background {
+        .makingOrder {
+            padding: 40px 5.3vw;
+            .generalInfo {
+                padding: 3.8vw 3.8vw 0 3.8vw;
+                > div {
+                    .productsList {
+                        > div {
+                            padding-bottom: 2.8vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes display {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

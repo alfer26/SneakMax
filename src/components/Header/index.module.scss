@@ -1,0 +1,234 @@
+.header {
+    color: white;
+    position: -webkit-sticky; // Префикс для Safari
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 0;
+    background-color: #484283;
+    z-index: 100;
+
+    > div {
+        padding: 1.25em 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+
+        .nav {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            gap: 40px;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+
+            .cartButton {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                gap: 0.7em;
+                position: relative;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+
+                .count {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    -webkit-transform: translate(50%, 40%);
+                    transform: translate(50%, 40%);
+                    width: 1.2em;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+
+                    @supports (aspect-ratio: 1 / 1) {
+                        aspect-ratio: 1 / 1;
+                    }
+
+                    height: 1.2em; // Fallback
+                    background-color: #f14f4f;
+                    border-radius: 50%; // Более поддерживаемая альтернатива 100px
+                }
+            }
+        }
+
+        button {
+            -webkit-transition: -webkit-transform 0.1s ease;
+            transition: transform 0.1s ease;
+
+            &:hover,
+            &:focus {
+                -webkit-transform: scale(1.05);
+                transform: scale(1.05);
+            }
+
+            &:active {
+                -webkit-transform: scale(0.97);
+                transform: scale(0.97);
+            }
+        }
+    }
+
+    hr {
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        position: relative;
+        bottom: -2px;
+        margin: 0; // Сброс стандартных отступов
+    }
+}
+
+.desktop > div {
+    margin-right: 9px;
+}
+
+@media (max-width: 1024px) {
+    .mobile {
+        > div {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+
+            .nav {
+                gap: 25px;
+            }
+
+            .backgroundMenu {
+                z-index: 10;
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0; // Альтернатива inset для лучшей поддержки
+                -webkit-transition: background-color 0.4s;
+                transition: background-color 0.4s;
+                -webkit-animation: displayBlur 0.4s;
+                animation: displayBlur 0.4s;
+                background-color: rgba(0, 0, 0, 0.5); // Фолбэк для backdrop-filter
+
+                @supports (backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px)) {
+                    background-color: transparent;
+                    -webkit-backdrop-filter: blur(2px);
+                    backdrop-filter: blur(2px);
+                }
+
+                .menu {
+                    padding: 0 3.5433070866vw;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                    flex-direction: column;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    -webkit-transition: -webkit-transform 0.4s;
+                    transition: transform 0.4s;
+                    -webkit-animation: displayTransform 0.4s;
+                    animation: displayTransform 0.4s;
+                    background-color: #444b58;
+
+                    h2 {
+                        margin: 25px;
+                    }
+
+                    .closeButton {
+                        position: absolute;
+                        top: 30px;
+                        right: 3.576999012833vw;
+                    }
+
+                    .navGeneral {
+                        -webkit-box-align: center;
+                        -ms-flex-align: center;
+                        align-items: center;
+                        margin: 30px;
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        gap: 20px;
+                        -webkit-box-orient: vertical;
+                        -webkit-box-direction: normal;
+                        -ms-flex-direction: column;
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        &::after {
+            font-size: 18vw;
+            right: 5vw;
+            bottom: 23%;
+        }
+    }
+}
+
+@-webkit-keyframes displayBlur {
+    from {
+        -webkit-backdrop-filter: blur(0);
+        backdrop-filter: blur(0);
+    }
+    to {
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
+    }
+}
+
+@keyframes displayBlur {
+    from {
+        -webkit-backdrop-filter: blur(0);
+        backdrop-filter: blur(0);
+    }
+    to {
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
+    }
+}
+
+@-webkit-keyframes displayTransform {
+    from {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+    to {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes displayTransform {
+    from {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+    to {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,39 @@
+.cartCell {
+    &:hover {
+        background-color: #ccd9f233;
+    }
+    width: 100%;
+    padding: 10px 15px 10px 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        flex-grow: 1;
+        > .price {
+            font-family: Intro Bold;
+            font-size: 1.25em;
+            line-height: 1em;
+        }
+    }
+    > a {
+        width: 20%;
+        aspect-ratio: 1 / 1;
+        > img {
+            width: 100%;
+        }
+    }
+}
+
+@media (width <= 768px) {
+    .cartCell {
+        padding: 1vw;
+
+        gap: 3vw;
+        > div {
+            gap: 2vw;
+        }
+    }
+}
