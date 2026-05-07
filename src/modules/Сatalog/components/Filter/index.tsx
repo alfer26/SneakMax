@@ -1,5 +1,4 @@
 import styles from './index.module.scss';
-import 'nouislider/distribute/nouislider.css';
 import Slider from './Slider';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

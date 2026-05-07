@@ -1,16 +1,16 @@
-import Cart from './components/Cart';
+import Cart from './modules/Cart';
 import { Navigate, Route, Routes } from 'react-router';
-import Header from './components/Header';
-import Welcome from './components/Welcome';
-import Catalog from './components/Сatalog';
-import AboutUs from './components/AboutUs';
-import ProductSelection from './components/ProductSelection';
-import OurTeam from './components/OurTeam';
-import DeliveryAndPayment from './components/DeliveryAndPayment';
-import Contacts from './components/Contacts';
-import Ask from './components/Ask';
-import MakingOrder from './components/MakingOrder';
-import ProductCard from './components/ProductCard';
+import Header from './modules/Header';
+import Welcome from './modules/Welcome';
+import Catalog from './modules/Сatalog';
+import AboutUs from './modules/AboutUs';
+import ProductSelection from './modules/ProductSelection';
+import OurTeam from './modules/OurTeam';
+import DeliveryAndPayment from './modules/DeliveryAndPayment';
+import Contacts from './modules/Contacts';
+import Ask from './modules/Ask';
+import MakingOrder from './modules/MakingOrder';
+import ProductCard from './modules/ProductCard';
 
 function App() {
     window.onbeforeunload = () =>
@@ -21,7 +21,7 @@ function App() {
     };
     return (
         <>
-            <Header />
+            {/* <Header />
             <main>
                 <Routes>
                     <Route path="cart" element={<Cart />} />
@@ -37,7 +37,7 @@ function App() {
                 <DeliveryAndPayment />
                 <Contacts />
                 <Ask />
-            </main>
+            </main> */}
         </>
     );
 }
