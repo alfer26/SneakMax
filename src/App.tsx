@@ -21,7 +21,7 @@ function App() {
     };
     return (
         <>
-            {/* <Header />
+            <Header />
             <main>
                 <Routes>
                     <Route path="cart" element={<Cart />} />
@@ -37,7 +37,7 @@ function App() {
                 <DeliveryAndPayment />
                 <Contacts />
                 <Ask />
-            </main> */}
+            </main>
         </>
     );
 }

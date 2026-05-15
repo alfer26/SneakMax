@@ -5,6 +5,7 @@ import ThirdStep from './components/ThirdStep';
 import styles from './index.module.scss';
 import { DataProductSelection, DataTakeOffer } from '../../Types';
 import { initial } from '../../axios/initial';
+import Button from '../UI/buttons/Button';
 
 const ProductSelection = () => {
     const [responseZIndex, setResponseZIndex] = useState(-1);
@@ -119,31 +120,33 @@ const ProductSelection = () => {
                     <div className={styles.nav}>
                         <p>{currentStep} из 3</p>
                         <nav>
-                            <button
+                            <Button
+                                variant={'transparent'}
                                 style={{
                                     opacity: currentStep === 1 ? 0 : 1,
                                     pointerEvents: currentStep === 1 ? 'none' : 'auto',
                                 }}
-                                className={`transparentButton ${styles.prevStep}`}
-                                onClick={() => currentStep > 1 && setCurrentStep(currentStep - 1)}
+                                className={styles.prevStep}
                                 type="button"
+                                onClick={() => currentStep > 1 && setCurrentStep(currentStep - 1)}
                             >
                                 Предыдущий шаг
-                            </button>
+                            </Button>
 
                             {currentStep < 3 && (
-                                <button
-                                    className={`transparentButton ${styles.nextStep}`}
-                                    onClick={nextStep}
+                                <Button
+                                    variant={'transparent'}
+                                    className={styles.nextStep}
                                     type="button"
+                                    onClick={nextStep}
                                 >
                                     Следующий шаг
-                                </button>
+                                </Button>
                             )}
                             {currentStep === 3 && (
-                                <button className={`redButton ${styles.nextStep}`} type="submit">
+                                <Button variant={'red'} className={styles.nextStep} type="submit">
                                     Завершить
-                                </button>
+                                </Button>
                             )}
                         </nav>
                     </div>
@@ -184,8 +187,9 @@ const ProductSelection = () => {
                             }}
                         />
                         <nav>
-                            <button
-                                className={`greyButton ${styles.prevStep}`}
+                            <Button
+                                variant={'grey'}
+                                className={styles.prevStep}
                                 type="button"
                                 onClick={() => {
                                     setTakeOfferWindowDisplay(!takeOfferWindowDisplay);
@@ -193,17 +197,18 @@ const ProductSelection = () => {
                                 }}
                             >
                                 Вернуться
-                            </button>
-                            <button className={`redButton ${styles.nextStep}`} type="submit">
+                            </Button>
+                            <Button variant={'red'} className={styles.nextStep} type="submit">
                                 Получить
-                            </button>
+                            </Button>
                         </nav>
                         <div className={styles.response} style={{ opacity: responseOpacity, zIndex: responseZIndex }}>
                             {response ? (
                                 <>
                                     <h2>{'Ожидайте. Предложение прийдёт вам на почту.'}</h2>
-                                    <button
-                                        className={`greyButton  ${styles.return}`}
+                                    <Button
+                                        variant={'grey'}
+                                        className={styles.return}
                                         type="button"
                                         onClick={() => {
                                             setTakeOfferWindowDisplay(!takeOfferWindowDisplay);
@@ -213,7 +218,7 @@ const ProductSelection = () => {
                                         }}
                                     >
                                         Новое предложение
-                                    </button>
+                                    </Button>
                                 </>
                             ) : (
                                 <>

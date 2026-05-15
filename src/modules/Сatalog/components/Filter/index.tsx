@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Filter as FilterType, RangesReducer, SneakersReducer } from '../../../../Types';
 import { applyFilters } from '../../../../redux/reducers/sneakersReducer';
+import Button from '../../../UI/buttons/Button';
 
 const Filter = () => {
     const dispatch = useDispatch();
@@ -295,13 +296,13 @@ const Filter = () => {
                                             <input type="checkbox" name="sizes" value={item} onInput={changeTracker} />
                                         </label>
                                     );
-                                }
+                                },
                             )}
                         </div>
                     </section>
-                    <button className="greyButton" disabled={confirmButtonDisabled}>
+                    <Button variant={'grey'} disabled={confirmButtonDisabled} type="submit">
                         {confirmButtonDisabled ? 'Применено' : 'Применить'}
-                    </button>
+                    </Button>
                     <button type="reset">сбросить</button>
                 </div>
             </div>

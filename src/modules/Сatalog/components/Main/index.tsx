@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { getSneakers } from '../../../../redux/asyncThunks/getSneakers';
 import { getPriceRange } from '../../../../redux/asyncThunks/getPriceRange';
 import { getSizeRange } from '../../../../redux/asyncThunks/getSizeRange';
+import Button from '../../../UI/buttons/Button';
 
 const Main = () => {
     const appDispatch = useAppDispatch();
@@ -50,9 +51,9 @@ const Main = () => {
                 })}
             </div>
             {currentPage < totalPages && (
-                <button className={`redButton ${styles.showMore}`} onClick={() => dispatch(incPageCount())}>
+                <Button variant={'red'} onClick={() => dispatch(incPageCount())}>
                     Показать ещё
-                </button>
+                </Button>
             )}
         </section>
     );
